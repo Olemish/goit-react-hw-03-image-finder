@@ -3,12 +3,12 @@ import axios from 'axios';
 import Searchbar from './Searchbar/Searchbar';
 import '../styles/styles.css';
 import { ImageGallery } from './ImageGallery/ImageGallery';
-// import { ToastContainer, toast } from 'react-toastify';
+
 import { Modal } from './Modal/Modal';
-import { render } from '@testing-library/react';
+
 import { LoadMore } from './Loader/Loader';
 import { ButtonLoadMore } from './Button/Button';
-// import { ImageGalleryItem } from './ImageGalleryItem/ImageGalleryItem';
+
 import api from '../api';
 
 axios.defaults.baseURL = 'https://pixabay.com/api/';
@@ -52,10 +52,7 @@ export class App extends Component {
   heandleSearch = search => {
     this.setState({ search, page: 1, images: [] });
   };
-  // heandleGalleryImage = ({ fullImage }) => {
-  //   // this.setState({ selectedImg: fullImage });
-  //   this.setState({ showModal: true });
-  // };
+
   toggleModal = async largeImg => {
     await this.setState({ selectedImg: largeImg });
     this.setState(({ showModal }) => ({ showModal: !showModal }));
@@ -66,25 +63,8 @@ export class App extends Component {
     }));
   };
 
-  // async onSubmit(value) {
-  //   this.setState({ loading: true });
-  //   try {
-  //     const response = await axios.get(
-  //       `https://pixabay.com/api/?q=${value}&page=1&key=28514356-cee68255b4a081534629cb8cb&image_type=photo&orientation=horizontal&per_page=12`
-  //     );
-
-  //     this.setState({ images: response.data.hits });
-  //   } catch (error) {
-  //     this.setState({ error: 'не смогли загрузить !' });
-  //   } finally {
-  //     this.setState({ loading: false });
-  //   }
-  // }
-
   render() {
     const { images, error, status, showModal, selectedImg } = this.state;
-
-    // console.log({ state: this.state });
 
     return (
       <main className="App">
